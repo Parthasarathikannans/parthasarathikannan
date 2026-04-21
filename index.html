@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parthasarathi Kannan — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'primary': '#e74c3c',
+          'primary-dark': '#c0392b',
+          'primary-deep': '#7b1e1e',
+          'primary-glow': '#ff6b5b',
+          'bg-dark': '#080808',
+          'bg-surface': '#111',
+          'bg-deep': '#181818',
+          'text-light': '#f2ede8',
+          'text-muted': 'rgba(242,237,232,0.7)',
+          'text-dim': 'rgba(242,237,232,0.35)',
+        },
+        fontFamily: {
+          'mono': ['Space Mono', 'monospace'],
+          'display': ['Bebas Neue', 'sans-serif'],
+          'body': ['Barlow', 'sans-serif'],
+          'cond': ['Barlow Condensed', 'sans-serif'],
+        },
+        animation: {
+          'blink': 'blink 1s step-end infinite',
+          'fadeUp': 'fadeUp 0.8s ease forwards',
+          'fadeLeft': 'fadeLeft 0.9s ease forwards',
+        },
+        keyframes: {
+          blink: {
+            '0%, 100%': { opacity: 1 },
+            '50%': { opacity: 0 },
+          },
+          fadeUp: {
+            '0%': { opacity: 0, transform: 'translateY(20px)' },
+            '100%': { opacity: 1, transform: 'translateY(0)' },
+          },
+          fadeLeft: {
+            '0%': { opacity: 0, transform: 'translate(20px, -50%)' },
+            '100%': { opacity: 1, transform: 'translate(0, -50%)' },
+          },
+        },
+      }
+    }
+  }
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    html { @apply scroll-smooth; }
+    body { @apply bg-bg-dark text-text-light font-body overflow-x-hidden min-h-screen relative; }
+    body::after {
+      content: ''; @apply fixed inset-0 pointer-events-none z-[9999];
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+    }
+  }
+  @layer components {
+    .btn { @apply font-cond text-[12px] tracking-[3px] uppercase px-8 py-3 cursor-pointer border-none no-underline inline-flex items-center gap-2 transition-all duration-300 relative overflow-hidden; }
+    .btn-red { @apply bg-primary-dark text-text-light hover:bg-primary hover:-translate-y-0.5; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
+    .btn-ghost { @apply bg-transparent text-text-muted border border-[rgba(242,237,232,0.15)] hover:border-primary-dark hover:text-primary hover:-translate-y-0.5; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
+    .stripe { @apply h-[2px] bg-[linear-gradient(90deg,transparent,#c0392b_20%,#e74c3c_50%,#c0392b_80%,transparent)]; }
+    .sec-num { @apply font-display text-[4rem] text-primary-deep leading-[0.9] min-w-[3.5rem]; }
+    .sec-eye { @apply font-mono text-[9px] tracking-[4px] uppercase text-primary mb-[5px]; }
+    .sec-title { @apply font-display text-[2.5rem] text-text-light tracking-[2px]; }
+    .pill { @apply font-mono text-[10px] tracking-[1px] px-3 py-1 border border-[rgba(192,57,43,0.3)] text-[rgba(231,76,60,0.9)] bg-[rgba(192,57,43,0.06)] transition-all cursor-default; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); }
+    .pill:hover { @apply bg-[rgba(192,57,43,0.15)] border-primary; }
+    .info-card { @apply p-[1.2rem_1.4rem] bg-[rgba(192,57,43,0.04)] border border-[rgba(192,57,43,0.12)] transition-colors duration-300; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+    .info-card:hover { @apply border-[rgba(192,57,43,0.4)]; }
+    .sk { @apply p-4 border border-[rgba(192,57,43,0.1)] relative overflow-hidden transition-colors cursor-default; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
+    .sk::before { content: ''; @apply absolute inset-y-0 left-0 w-0 bg-[rgba(192,57,43,0.05)] transition-[width] duration-500 ease-out; }
+    .sk:hover::before { @apply w-full; }
+    .sk:hover { @apply border-[rgba(192,57,43,0.4)]; }
+    .sk-fill { @apply h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200; }
+    .sk-fill.go { width: var(--p); }
+    .exp-item.vis { @apply opacity-100 translate-x-0; }
+    .edu-card { @apply flex gap-8 items-start border border-[rgba(192,57,43,0.15)] p-8 bg-[rgba(192,57,43,0.03)] max-w-[700px]; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px)); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="fixed top-0 left-0 right-0 z-[500] flex items-center justify-between px-6 md:px-16 h-[60px] bg-[rgba(8,8,8,0.95)] border-b border-[rgba(192,57,43,0.2)] backdrop-blur-2xl">
+  <div class="font-display text-[1.6rem] tracking-[3px] text-text-light flex items-center gap-1.5">PK<em class="text-primary not-italic">.</em></div>
+  <ul class="flex gap-5 md:gap-8 list-none">
+    <li><a href="#about" class="font-cond text-[9px] md:text-[11px] tracking-[1px] md:tracking-[3px] uppercase text-text-dim no-underline cursor-pointer transition-colors duration-250 relative pb-[3px] hover:text-primary group after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">About</a></li>
+    <li><a href="#skills" class="font-cond text-[9px] md:text-[11px] tracking-[1px] md:tracking-[3px] uppercase text-text-dim no-underline cursor-pointer transition-colors duration-250 relative pb-[3px] hover:text-primary group after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">Skills</a></li>
+    <li><a href="#exp" class="font-cond text-[9px] md:text-[11px] tracking-[1px] md:tracking-[3px] uppercase text-text-dim no-underline cursor-pointer transition-colors duration-250 relative pb-[3px] hover:text-primary group after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">Experience</a></li>
+    <li><a href="#edu" class="font-cond text-[9px] md:text-[11px] tracking-[1px] md:tracking-[3px] uppercase text-text-dim no-underline cursor-pointer transition-colors duration-250 relative pb-[3px] hover:text-primary group after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">Education</a></li>
+    <li><a href="#contact" class="font-cond text-[9px] md:text-[11px] tracking-[1px] md:tracking-[3px] uppercase text-text-dim no-underline cursor-pointer transition-colors duration-250 relative pb-[3px] hover:text-primary group after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="min-h-screen flex flex-col justify-center px-6 md:px-16 pt-24 pb-16 relative overflow-hidden" id="top">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(192,57,43,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(192,57,43,0.04)_1px,transparent_1px)] bg-[length:60px_60px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black_30%,transparent_100%)]"></div>
+  <div class="absolute -top-[100px] -right-[100px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(192,57,43,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+  <div class="absolute -bottom-[150px] -left-[50px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(192,57,43,0.06)_0%,transparent_70%)] pointer-events-none"></div>
+
+  <p class="font-mono text-[12px] text-primary mb-6 tracking-[1px] opacity-0 animate-fadeUp [animation-delay:0.2s]">
+    <span id="typed"></span><span class="inline-block w-2 h-[13px] bg-primary align-middle ml-1 animate-blink"></span>
+  </p>
+
+  <h1 class="font-display text-[clamp(3rem,15vw,5rem)] md:text-[clamp(4.5rem,10vw,10rem)] leading-[0.88] tracking-[3px] text-text-light mb-2.5 opacity-0 animate-fadeUp [animation-delay:0.4s]">
+    PARTHASARATHI<br>
+    <span class="block text-primary relative after:content-['KANNAN'] after:absolute after:inset-0 after:text-transparent after:[-webkit-text-stroke:1px_rgba(231,76,60,0.25)] after:translate-x-[3px] after:translate-y-[3px] after:-z-10">KANNAN</span>
+  </h1>
+
+  <div class="inline-flex items-center gap-[10px] mb-[1.8rem] opacity-0 animate-fadeUp [animation-delay:0.6s]">
+    <span class="font-mono text-primary-deep text-[1.1rem]">[</span>
+    <span class="font-cond text-[1.3rem] font-bold tracking-[4px] uppercase text-text-muted">Software Developer</span>
+    <span class="font-mono text-primary-deep text-[1.1rem]">]</span>
+  </div>
+
+  <div class="flex flex-wrap gap-2 mb-10 opacity-0 animate-fadeUp [animation-delay:0.8s]">
+    <span class="pill">Laravel</span>
+    <span class="pill">PHP</span>
+    <span class="pill">MySQL</span>
+    <span class="pill">JavaScript</span>
+    <span class="pill">Tailwind CSS</span>
+    <span class="pill">AJAX</span>
+    <span class="pill">Web Dev</span>
+  </div>
+
+  <p class="font-cond text-[13px] tracking-[3px] uppercase text-text-dim mb-10 opacity-0 animate-fadeUp [animation-delay:1s]">
+    <span class="text-primary">▸</span> Dubai, United Arab Emirates &nbsp;·&nbsp; Currently at <span class="text-primary">ELYTS LLC</span>
+  </p>
+
+  <div class="flex gap-4 flex-wrap opacity-0 animate-fadeUp [animation-delay:1.2s]">
+    <a class="btn btn-red" href="https://www.linkedin.com/in/parthasarathikannan" target="_blank">
+      <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      View LinkedIn
+    </a>
+    <a class="btn btn-ghost" href="#exp">See My Work</a>
+  </div>
+
+  <div class="hidden md:flex absolute right-16 top-1/2 -translate-y-1/2 flex-col gap-8 opacity-0 animate-fadeLeft [animation-delay:1.4s]">
+    <div class="text-right">
+      <span class="font-display text-[3rem] text-primary block leading-none">184</span>
+      <span class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Connections</span>
+    </div>
+    <div class="w-[1px] h-[30px] bg-[rgba(192,57,43,0.2)] self-end"></div>
+    <div class="text-right">
+      <span class="font-display text-[3rem] text-primary block leading-none">2+</span>
+      <span class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Companies</span>
+    </div>
+    <div class="w-[1px] h-[30px] bg-[rgba(192,57,43,0.2)] self-end"></div>
+    <div class="text-right">
+      <span class="font-display text-[3rem] text-primary block leading-none">7+</span>
+      <span class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Tech Skills</span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-6 md:left-16 flex items-center gap-3 opacity-0 animate-fadeUp [animation-delay:2s]">
+    <div class="w-12 h-[1px] bg-[linear-gradient(90deg,#e74c3c,transparent)]"></div>
+    <span class="font-mono text-[9px] tracking-[3px] text-text-dim uppercase">Scroll to explore</span>
+  </div>
+
+  <div class="hidden md:block absolute right-16 bottom-12 font-mono text-[9px] leading-[1.7] text-[rgba(192,57,43,0.18)] tracking-[1px] pointer-events-none text-right opacity-0 animate-fadeUp [animation-delay:1.6s]">
+    $developer = new Parthasarathi();<br>
+    $developer->stack(['Laravel','PHP']);<br>
+    $developer->location('Dubai, UAE');<br>
+    $developer->status('Available');
+  </div>
+</div>
+
+<div class="stripe"></div>
+
+<!-- ── ABOUT ── -->
+<section class="bg-bg-surface border-t border-[rgba(192,57,43,0.15)] px-6 md:px-16 py-16 md:py-20 relative" id="about">
+  <div class="flex items-start gap-5 mb-14">
+    <span class="sec-num">01</span>
+    <div class="border-l-2 border-primary pl-4">
+      <p class="sec-eye">Who I Am</p>
+      <h2 class="sec-title">About Me</h2>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-16 items-start">
+    <div class="space-y-4">
+      <p class="text-[0.95rem] leading-[1.9] text-text-muted font-light">A passionate <strong class="text-text-light font-semibold">Software Developer</strong> currently building robust, scalable web solutions at <strong class="text-text-light font-semibold">ELYTS LLC</strong> in Dubai, UAE. I specialize in crafting full-stack applications with a strong focus on clean code and user-centric design.</p>
+      <p class="text-[0.95rem] leading-[1.9] text-text-muted font-light">My core stack revolves around <code class="font-mono text-[0.8rem] text-primary bg-[rgba(192,57,43,0.08)] px-1.5 py-0.5">Laravel</code> and <code class="font-mono text-[0.8rem] text-primary bg-[rgba(192,57,43,0.08)] px-1.5 py-0.5">PHP</code> on the backend, paired with <code class="font-mono text-[0.8rem] text-primary bg-[rgba(192,57,43,0.08)] px-1.5 py-0.5">JavaScript</code>, <code class="font-mono text-[0.8rem] text-primary bg-[rgba(192,57,43,0.08)] px-1.5 py-0.5">Tailwind CSS</code> and <code class="font-mono text-[0.8rem] text-primary bg-[rgba(192,57,43,0.08)] px-1.5 py-0.5">AJAX</code> on the front — delivering seamless, dynamic web experiences from database to browser.</p>
+      <p class="text-[0.95rem] leading-[1.9] text-text-muted font-light">With experience at <strong class="text-text-light font-semibold">ABOSS Technologies</strong> as a Web Developer and a solid engineering foundation from <strong class="text-text-light font-semibold">Mohamed Sathak Engineering College</strong>, I bring both academic rigor and real-world delivery to every project.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="info-card"><div class="font-display text-[2.4rem] text-primary leading-none mb-1">UAE</div><div class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Dubai, Location</div></div>
+      <div class="info-card"><div class="font-display text-[2.4rem] text-primary leading-none mb-1">184</div><div class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Connections</div></div>
+      <div class="info-card"><div class="font-display text-[2.4rem] text-primary leading-none mb-1">2+</div><div class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Companies</div></div>
+      <div class="info-card"><div class="font-display text-[2.4rem] text-primary leading-none mb-1">7+</div><div class="font-mono text-[9px] tracking-[2px] uppercase text-text-dim">Tech Skills</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ── SKILLS ── -->
+<section class="bg-bg-dark border-t border-[rgba(192,57,43,0.1)] px-6 md:px-16 py-20 relative" id="skills">
+  <div class="flex items-start gap-5 mb-14">
+    <span class="sec-num">02</span>
+    <div class="border-l-2 border-primary pl-4">
+      <p class="sec-eye">Tech Stack</p>
+      <h2 class="sec-title">Core Skills</h2>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">Laravel</span><span class="font-display text-[1.4rem] text-primary">92%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:92%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">PHP</span><span class="font-display text-[1.4rem] text-primary">95%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:95%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">MySQL</span><span class="font-display text-[1.4rem] text-primary">88%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:88%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">JavaScript</span><span class="font-display text-[1.4rem] text-primary">85%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:85%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">Tailwind CSS</span><span class="font-display text-[1.4rem] text-primary">90%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:90%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">AJAX</span><span class="font-display text-[1.4rem] text-primary">83%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:83%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">Web Development</span><span class="font-display text-[1.4rem] text-primary">93%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:93%"></div></div></div>
+    <div class="sk"><div class="flex justify-between items-center mb-2 relative z-10"><span class="font-cond text-[1rem] font-bold tracking-[1px] text-text-light">Full Stack</span><span class="font-display text-[1.4rem] text-primary">87%</span></div><div class="h-[2px] bg-[rgba(242,237,232,0.06)]"><div class="sk-fill h-full bg-[linear-gradient(90deg,#7b1e1e,#e74c3c)] w-0 transition-[width] duration-[1.3s] ease-out delay-200" style="--p:87%"></div></div></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ── EXPERIENCE ── -->
+<section class="bg-bg-deep border-t border-[rgba(192,57,43,0.15)] px-6 md:px-16 py-20 relative" id="exp">
+  <div class="flex items-start gap-5 mb-14">
+    <span class="sec-num">03</span>
+    <div class="border-l-2 border-primary pl-4">
+      <p class="sec-eye">Career</p>
+      <h2 class="sec-title">Experience</h2>
+    </div>
+  </div>
+  <div class="relative pl-8 after:content-[''] after:absolute after:left-0 after:top-[10px] after:bottom-[10px] after:w-[1px] after:bg-[linear-gradient(180deg,#e74c3c_0%,#7b1e1e_60%,transparent_100%)]">
+    <div class="exp-item relative mb-11 opacity-0 -translate-x-4 transition-all duration-700 ease-out">
+      <div class="absolute -left-[calc(2rem+4.5px)] top-2 w-[10px] h-[10px] rounded-full bg-primary shadow-[0_0_12px_rgba(231,76,60,0.6)] after:content-[''] after:absolute after:inset-[-4px] after:rounded-full after:border after:border-[rgba(231,76,60,0.25)]"></div>
+      <div class="font-cond text-[1.5rem] font-bold tracking-[2px] uppercase text-text-light mb-0.5">ELYTS LLC</div>
+      <div class="font-mono text-[0.75rem] text-primary tracking-[1px] mb-1">software_developer.exe</div>
+      <div class="font-mono text-[0.7rem] tracking-[2px] uppercase text-text-dim mb-2.5">Current · Dubai, United Arab Emirates</div>
+      <p class="text-[0.9rem] leading-[1.8] text-text-muted font-light max-w-[560px]">Building and maintaining high-quality web applications using the Laravel ecosystem. Delivering scalable backend solutions and seamless front-end experiences for clients across the UAE and beyond.</p>
+      <div class="flex flex-wrap gap-1.5 mt-2.5">
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">Laravel</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">PHP</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">MySQL</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">JavaScript</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">Tailwind CSS</span>
+      </div>
+    </div>
+    <div class="exp-item relative mb-11 opacity-0 -translate-x-4 transition-all duration-700 ease-out">
+      <div class="absolute -left-[calc(2rem+4.5px)] top-2 w-[10px] h-[10px] rounded-full bg-primary shadow-[0_0_12px_rgba(231,76,60,0.6)] after:content-[''] after:absolute after:inset-[-4px] after:rounded-full after:border after:border-[rgba(231,76,60,0.25)]"></div>
+      <div class="font-cond text-[1.5rem] font-bold tracking-[2px] uppercase text-text-light mb-0.5">ABOSS Technologies</div>
+      <div class="font-mono text-[0.75rem] text-primary tracking-[1px] mb-1">web_developer.exe</div>
+      <div class="font-mono text-[0.7rem] tracking-[2px] uppercase text-text-dim mb-2.5">Prior Role · India</div>
+      <p class="text-[0.9rem] leading-[1.8] text-text-muted font-light max-w-[560px]">Developed and maintained dynamic web applications, contributing to full project lifecycles from requirements gathering through deployment. Worked extensively with PHP, MySQL, JavaScript and AJAX to build responsive, data-driven web solutions.</p>
+      <div class="flex flex-wrap gap-1.5 mt-2.5">
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">PHP</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">MySQL</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">JavaScript</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">AJAX</span>
+        <span class="font-mono text-[9px] tracking-[1px] px-2.5 py-1 border border-[rgba(192,57,43,0.2)] text-[rgba(231,76,60,0.7)]">Web Dev</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ── EDUCATION ── -->
+<section class="bg-bg-surface border-t border-[rgba(192,57,43,0.12)] px-6 md:px-16 py-20 relative" id="edu">
+  <div class="flex items-start gap-5 mb-14">
+    <span class="sec-num">04</span>
+    <div class="border-l-2 border-primary pl-4">
+      <p class="sec-eye">Academic</p>
+      <h2 class="sec-title">Education</h2>
+    </div>
+  </div>
+  <div class="edu-card">
+    <div class="w-[52px] h-[52px] rounded-full bg-primary-deep flex items-center justify-center font-display text-[1.4rem] text-text-light shrink-0">MS</div>
+    <div>
+      <div class="font-cond text-[1.3rem] font-bold tracking-[1px] text-text-light mb-1">Mohamed Sathak Engineering College</div>
+      <div class="font-mono text-[0.75rem] text-primary tracking-[1px] mb-1.5">Engineering · Kilakarai, Tamil Nadu, India</div>
+      <div class="font-mono text-[0.7rem] text-text-dim tracking-[2px] uppercase">▸ Computer Science &amp; Engineering</div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ── CONTACT ── -->
+<section class="bg-bg-dark border-t border-[rgba(192,57,43,0.15)] px-6 md:px-16 py-24 text-center relative" id="contact">
+  <p class="sec-eye text-center mb-4">Open to opportunities</p>
+  <h2 class="font-display text-[clamp(3rem,8vw,7rem)] leading-[0.9] tracking-[4px] mb-4">LET'S <span class="text-primary">BUILD</span><br>TOGETHER</h2>
+  <p class="font-mono text-[0.8rem] tracking-[2px] text-text-dim mb-12 uppercase">Software developer · Dubai, UAE · Available for projects</p>
+  <div class="flex justify-center gap-10 flex-wrap mb-12">
+    <a class="flex items-center gap-2 font-cond text-[11px] tracking-[3px] uppercase text-text-dim no-underline transition-colors duration-300 cursor-pointer relative pb-1 hover:text-primary after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full" href="https://www.linkedin.com/in/parthasarathikannan" target="_blank">
+      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      linkedin.com/in/parthasarathikannan
+    </a>
+    <span class="flex items-center gap-2 font-cond text-[11px] tracking-[3px] uppercase text-text-dim no-underline transition-colors duration-300 cursor-pointer relative pb-1 hover:text-primary after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-[width] after:duration-300 hover:after:w-full">
+      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Dubai, United Arab Emirates
+    </span>
+  </div>
+  <a class="btn btn-red" href="https://www.linkedin.com/in/parthasarathikannan" target="_blank">
+    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    Connect on LinkedIn
+  </a>
+</section>
+
+<footer class="bg-bg-dark border-t border-[rgba(192,57,43,0.1)] px-6 md:px-16 py-5 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+  <p class="font-mono text-[9px] tracking-[2px] text-text-dim uppercase">© 2026 Parthasarathi Kannan</p>
+  <div class="font-display text-[1.3rem] text-primary-deep tracking-[3px]">PK.</div>
+  <p class="font-mono text-[9px] tracking-[2px] text-text-dim uppercase">Software Dev · ELYTS LLC · Dubai</p>
+</footer>
+
+<script>
+// Typewriter
+const phrases=["console.log('Hello, World!');","$dev = new Parthasarathi();","npm run build:portfolio","git commit -m 'Ready to hire'"];
+let pi=0,ci=0,deleting=false;
+const el=document.getElementById('typed');
+function type(){
+  const phrase=phrases[pi];
+  if(!deleting){
+    el.textContent=phrase.slice(0,++ci);
+    if(ci===phrase.length){deleting=true;setTimeout(type,1800);return;}
+  } else {
+    el.textContent=phrase.slice(0,--ci);
+    if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}
+  }
+  setTimeout(type,deleting?40:70);
+}
+type();
+
+// Scroll animations
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      if(e.target.classList.contains('sk-fill')) e.target.classList.add('go');
+      if(e.target.classList.contains('exp-item')) e.target.classList.add('vis');
+    }
+  });
+},{threshold:0.25});
+
+document.querySelectorAll('.sk-fill').forEach(b=>obs.observe(b));
+document.querySelectorAll('.exp-item').forEach((el,i)=>{
+  el.style.transitionDelay=`${i*0.15}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
