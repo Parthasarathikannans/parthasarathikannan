@@ -1,0 +1,23 @@
+{
+  "name": "parthasarathi-kannan-portfolio",
+  "version": "1.0.0",
+  "description": "Futuristic Cyberpunk Developer Portfolio for Parthasarathi Kannan - Web Developer & API Integration Specialist",
+  "main": "index.html",
+  "scripts": {
+    "start": "python server.py 8080",
+    "serve": "npx serve .",
+    "build": "echo 'Static production assets ready for deployment'"
+  },
+  "keywords": [
+    "portfolio",
+    "cyberpunk",
+    "web-developer",
+    "backend-developer",
+    "api-integration",
+    "fintech",
+    "payment-gateway",
+    "dubai"
+  ],
+  "author": "Parthasarathi Kannan",
+  "license": "MIT"
+}
