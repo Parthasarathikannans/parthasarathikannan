@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Parthasarathi Kannan | Web Developer & API Integration Specialist</title>
   
   <!-- SEO & Metadata -->
@@ -48,9 +48,20 @@
           <li><a href="#skills" class="nav-item-link">Skills</a></li>
           <li><a href="#education" class="nav-item-link">Credentials</a></li>
           <li><a href="#contact" class="nav-item-link">Contact</a></li>
+          <!-- Mobile Menu Actions (Visible inside mobile drawer) -->
+          <li class="mobile-menu-actions">
+            <a href="assets/docs/Parthasarathi_Kannan_Resume.pdf" download="Parthasarathi_Kannan_Resume.pdf" class="btn btn-secondary">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              Download Resume PDF
+            </a>
+            <a href="#contact" class="btn btn-primary">
+              Contact Me
+            </a>
+          </li>
         </ul>
       </nav>
 
+      <!-- Desktop Nav Actions -->
       <div class="nav-actions">
         <a href="assets/docs/Parthasarathi_Kannan_Resume.pdf" download="Parthasarathi_Kannan_Resume.pdf" class="btn btn-secondary btn-sm">
           Resume PDF
@@ -58,10 +69,16 @@
         <a href="#contact" class="btn btn-primary btn-sm">
           Contact Me
         </a>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
       </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <svg id="hamburger-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -302,7 +319,7 @@
                   <div class="growth-stat-big" id="growth-counter">+25%</div>
                   <div class="growth-stat-text">Online Sales Growth in Q1</div>
                 </div>
-                <div style="text-align: right; font-size: 0.85rem; color: #A3A3A3;">
+                <div style="font-size: 0.85rem; color: #A3A3A3;">
                   <div>OpenCart + PHP + MySQL</div>
                   <div style="color: #FFF; font-weight: 600;">AED / GBP Multi-Currency</div>
                   <div>600+ Managed Products</div>
@@ -723,11 +740,11 @@
               </div>
             </div>
 
-            <div style="display: flex; gap: 10px; margin-top: 24px;">
-              <a href="assets/docs/Parthasarathi_Kannan_Resume.pdf" download="Parthasarathi_Kannan_Resume.pdf" class="btn btn-primary" style="flex: 1; text-align: center;">
+            <div style="display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap;">
+              <a href="assets/docs/Parthasarathi_Kannan_Resume.pdf" download="Parthasarathi_Kannan_Resume.pdf" class="btn btn-primary" style="flex: 1 1 180px; text-align: center;">
                 Download Resume (PDF)
               </a>
-              <a href="resume.html" target="_blank" class="btn btn-secondary">
+              <a href="resume.html" target="_blank" class="btn btn-secondary" style="flex: 1 1 140px; text-align: center;">
                 View Web Resume
               </a>
             </div>
@@ -777,7 +794,7 @@
       <div>
         <strong>Parthasarathi Kannan</strong> · Web Developer & API Specialist · Dubai, UAE
       </div>
-      <div style="display: flex; gap: 16px;">
+      <div class="footer-links">
         <a href="https://linkedin.com/in/parthasarathikannan" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); text-decoration: none;">LinkedIn</a>
         <a href="https://parthasarathikannan.vercel.app" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); text-decoration: none;">Vercel</a>
         <a href="https://kathis.fashion" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); text-decoration: none;">kathis.fashion</a>
@@ -786,15 +803,15 @@
     </div>
   </footer>
 
-  <!-- Modal for message dispatch -->
+  <!-- Modal for message dispatch (Fully Responsive) -->
   <div class="modal-overlay" id="contact-modal" role="dialog" aria-modal="true">
     <div class="modal-card">
       <h3 style="font-size: 1.15rem; color: #FFF; margin-bottom: 8px;">Message Prepared</h3>
       <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
         Your message is ready for Parthasarathi Kannan. You can launch your mail app or copy the text:
       </p>
-      <pre id="modal-message-text" style="background: #111; padding: 12px; border-radius: 6px; font-size: 0.8rem; color: #DDD; white-space: pre-wrap; margin-bottom: 18px; border: 1px solid var(--border-subtle);"></pre>
-      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <pre id="modal-message-text" style="background: #111; padding: 12px; border-radius: 6px; font-size: 0.8rem; color: #DDD; white-space: pre-wrap; margin-bottom: 18px; border: 1px solid var(--border-subtle); word-break: break-word;"></pre>
+      <div class="modal-footer">
         <button class="btn btn-secondary modal-close btn-sm">Close</button>
         <button id="modal-copy" class="btn btn-secondary btn-sm">Copy Message</button>
         <button id="modal-open-mail" class="btn btn-primary btn-sm">Open Email Client ↗</button>
